@@ -2,6 +2,10 @@ import "reflect-metadata";
 import { createConnection } from "typeorm";
 import express from "express";
 import morgan from "morgan";
+import dotent from "dotenv";
+import cookieParser from "cookie-parser";
+
+dotent.config();
 
 import authRoutes from "./routes/auth";
 import trim from "./middleware/trim";
@@ -12,6 +16,7 @@ app.use(express.json());
 app.use(morgan("dev"));
 
 app.use(trim);
+app.use(cookieParser());
 
 app.get("/", (req, res) => res.send("Hello world"));
 app.use("/api/auth", authRoutes);
