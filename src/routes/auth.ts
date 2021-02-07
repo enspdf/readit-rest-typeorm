@@ -1,9 +1,9 @@
-import { Request, Response, Router } from "express";
-import { User } from "../entities/User";
-import { isEmpty, validate } from "class-validator";
 import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
+import { isEmpty, validate } from "class-validator";
 import cookie from "cookie";
+import { Request, Response, Router } from "express";
+import jwt from "jsonwebtoken";
+import User from "../entities/User";
 import auth from "../middleware/auth";
 
 const register = async (req: Request, res: Response) => {
@@ -56,7 +56,7 @@ const login = async (req: Request, res: Response) => {
     if (!passwordMatches)
       return res.status(401).json({ password: "Password is incorrect" });
 
-    const token = jwt.sign({ username }, process.env.JWT_SECRET);
+    const token = jwt.sign({ username }, process.env.JWT_SECRET!);
 
     res.set(
       "Set-Cookie",
@@ -72,6 +72,8 @@ const login = async (req: Request, res: Response) => {
     return res.json(user);
   } catch (error) {
     console.log(error);
+
+    return res.status(500).json({ error: "Something went wrong" });
   }
 };
 
