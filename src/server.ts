@@ -2,6 +2,7 @@ import cookieParser from "cookie-parser";
 import dotent from "dotenv";
 import express from "express";
 import morgan from "morgan";
+import cors from "cors";
 import "reflect-metadata";
 import { createConnection } from "typeorm";
 import trim from "./middleware/trim";
@@ -19,6 +20,13 @@ app.use(morgan("dev"));
 
 app.use(trim);
 app.use(cookieParser());
+app.use(
+  cors({
+    credentials: true,
+    origin: process.env.ORIGIN,
+    optionsSuccessStatus: 200,
+  })
+);
 
 app.get("/", (req, res) => res.send("Hello world"));
 app.use("/api/auth", authRoutes);

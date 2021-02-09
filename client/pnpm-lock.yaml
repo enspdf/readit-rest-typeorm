@@ -1,11 +1,14 @@
 dependencies:
   autoprefixer: 10.2.4_postcss@8.2.5
+  axios: 0.21.1
+  classnames: 2.2.6
   next: 10.0.6_react-dom@17.0.1+react@17.0.1
   postcss: 8.2.5
   react: 17.0.1
   react-dom: 17.0.1_react@17.0.1
   tailwindcss: 2.0.3_132a6068366276bc6a71795f98f5a160
 devDependencies:
+  '@types/classnames': 2.2.11
   '@types/react': 17.0.1
 lockfileVersion: 5.2
 packages:
@@ -174,6 +177,10 @@ packages:
       node: '>=8.0.0'
     resolution:
       integrity: sha512-sDOAZcYwynHFTbLo6n8kIbLiVF3a3BLkrmehJUyEbT9F+Smbi47kLGS2gG2g0fjBLR/Lr1InPD7kXL7FaTqEkw==
+  /@types/classnames/2.2.11:
+    dev: true
+    resolution:
+      integrity: sha512-2koNhpWm3DgWRp5tpkiJ8JGc1xTn2q0l+jUNUE7oMKXUf5NpI9AIdC4kbjGNFBdHtcxBD18LAksoudAVhFKCjw==
   /@types/prop-types/15.7.3:
     dev: true
     resolution:
@@ -327,6 +334,12 @@ packages:
       postcss: ^8.1.0
     resolution:
       integrity: sha512-DCCdUQiMD+P/as8m3XkeTUkUKuuRqLGcwD0nll7wevhqoJfMRpJlkFd1+MQh1pvupjiQuip42lc/VFvfUTMSKw==
+  /axios/0.21.1:
+    dependencies:
+      follow-redirects: 1.13.2
+    dev: false
+    resolution:
+      integrity: sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==
   /babel-plugin-syntax-jsx/6.18.0:
     dev: false
     resolution:
@@ -996,6 +1009,17 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-PpOwAdQ/YlXQ2vj8a3h8IipDuYRi3wceVQQGYWxNINccq40Anw7BlsEXCMbt1Zt+OLA6Fq9suIpIWD0OsnISlw==
+  /follow-redirects/1.13.2:
+    dev: false
+    engines:
+      node: '>=4.0'
+    peerDependencies:
+      debug: '*'
+    peerDependenciesMeta:
+      debug:
+        optional: true
+    resolution:
+      integrity: sha512-6mPTgLxYm3r6Bkkg0vNM0HTjfGrOEtsfbhagQvbxDEsEkpNhw582upBaoRZylzen6krEmxXJgt9Ju6HiI4O7BA==
   /fraction.js/4.0.13:
     dev: false
     resolution:
@@ -2583,8 +2607,11 @@ packages:
     resolution:
       integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 specifiers:
+  '@types/classnames': ^2.2.11
   '@types/react': ^17.0.1
   autoprefixer: ^10.2.4
+  axios: ^0.21.1
+  classnames: ^2.2.6
   next: 10.0.6
   postcss: ^8.2.5
   react: 17.0.1
