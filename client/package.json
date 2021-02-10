@@ -11,6 +11,7 @@
     "autoprefixer": "^10.2.4",
     "axios": "^0.21.1",
     "classnames": "^2.2.6",
+    "dayjs": "^1.10.4",
     "next": "10.0.6",
     "postcss": "^8.2.5",
     "react": "17.0.1",
