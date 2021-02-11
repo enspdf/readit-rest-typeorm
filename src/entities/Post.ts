@@ -1,4 +1,4 @@
-import { Expose } from "class-transformer";
+import { Exclude, Expose } from "class-transformer";
 import {
   BeforeInsert,
   Column,
@@ -13,6 +13,7 @@ import Comment from "./Comment";
 import Entity from "./Entity";
 import Sub from "./Sub";
 import User from "./User";
+import Vote from "./Vote";
 
 @TOEntity("posts")
 export class Post extends Entity {
@@ -53,8 +54,27 @@ export class Post extends Entity {
   @OneToMany(() => Comment, (comment) => comment.post)
   comments: Comment[];
 
+  @Exclude()
+  @OneToMany(() => Vote, (vote) => vote.post)
+  votes: Vote[];
+
   @Expose() get url(): string {
     return `/r/${this.subName}/${this.identifier}/${this.slug}`;
+  }
+
+  @Expose() get commentCount(): number {
+    return this.comments?.length;
+  }
+
+  @Expose() get voteScore(): number {
+    return this.votes?.reduce((prev, curr) => prev + (curr.value || 0), 0);
+  }
+
+  protected userVote: number;
+  setUserVote(user: User) {
+    const index = this.votes?.findIndex((v) => v.username === user.username);
+
+    this.userVote = index > -1 ? this.votes[index].value : 0;
   }
 
   @BeforeInsert()
