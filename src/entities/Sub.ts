@@ -1,20 +1,20 @@
 import {
-  Column,
   Entity as TOEntity,
+  Column,
   Index,
-  JoinColumn,
   ManyToOne,
+  JoinColumn,
   OneToMany,
 } from "typeorm";
+
 import Entity from "./Entity";
-import { Post } from "./Post";
 import User from "./User";
+import Post from "./Post";
 
 @TOEntity("subs")
 export default class Sub extends Entity {
   constructor(sub: Partial<Sub>) {
     super();
-
     Object.assign(this, sub);
   }
 

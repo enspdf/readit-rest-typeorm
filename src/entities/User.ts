@@ -1,22 +1,22 @@
-import bcrypt from "bcrypt";
-import { Exclude } from "class-transformer";
 import { IsEmail, Length } from "class-validator";
 import {
-  BeforeInsert,
-  Column,
   Entity as TOEntity,
+  Column,
   Index,
+  BeforeInsert,
   OneToMany,
 } from "typeorm";
+import bcrypt from "bcrypt";
+import { Exclude } from "class-transformer";
+
 import Entity from "./Entity";
-import { Post } from "./Post";
+import Post from "./Post";
 import Vote from "./Vote";
 
 @TOEntity("users")
 export default class User extends Entity {
   constructor(user: Partial<User>) {
     super();
-
     Object.assign(this, user);
   }
 
@@ -27,9 +27,7 @@ export default class User extends Entity {
   email: string;
 
   @Index()
-  @Length(3, 255, {
-    message: "Must be at least 3 characters long",
-  })
+  @Length(3, 255, { message: "Must be at least 3 characters long" })
   @Column({ unique: true })
   username: string;
 
