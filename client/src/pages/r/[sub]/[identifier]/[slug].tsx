@@ -174,7 +174,7 @@ export default function PostPage() {
                         </Link>
                         <form onSubmit={submitComment}>
                           <textarea
-                            className="w-full p-3 border rounded border-grey-300 focus:outline-none focus:border-gray-600"
+                            className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-gray-600"
                             onChange={(e) => setNewComment(e.target.value)}
                             value={newComment}
                           ></textarea>
@@ -190,7 +190,7 @@ export default function PostPage() {
                       </p>
                     </div>
                   ) : (
-                    <div className="flex items-center justify-between px-2 py-4 border rounded border-grey-200">
+                    <div className="flex items-center justify-between px-2 py-4 border border-gray-200 rounded">
                       <p className="font-semibold text-gray-500">
                         Log in or sign up to leave a comment
                       </p>

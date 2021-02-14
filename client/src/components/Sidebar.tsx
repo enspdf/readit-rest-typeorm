@@ -26,7 +26,7 @@ export default function Sidebar({ sub }: { sub: Sub }) {
           </div>
           <p className="my-3">
             <i className="mr-2 fas fa-birthday-cake"></i>
-            Created {dayjs(sub.createdAt).format("D MM YYYY")}
+            Created {dayjs(sub.createdAt).format("D MMM YYYY")}
           </p>
           {authenticated && (
             <Link href={`/r/${sub.name}/submit`}>
