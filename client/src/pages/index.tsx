@@ -12,6 +12,9 @@ export default function Home() {
   const [observedPost, setObservedPost] = useState("");
   // const { data: posts } = useSWR<Post[]>("/posts");
   const { data: topSubs } = useSWR<Sub[]>("/misc/top-subs");
+  const description =
+    "Reddit is a network of communities based on people's interests. Find communities you're interested in, and became part of an online community!";
+  const title = "readit: the front page of the internet";
   const { authenticated } = useAuthState();
   const {
     data,
@@ -19,7 +22,9 @@ export default function Home() {
     setSize: setPage,
     isValidating,
     revalidate,
+    error,
   } = useSWRInfinite<Post[]>((index) => `/posts?page=${index}`);
+  const isInitialLoading = !data && !error;
   const posts: Post[] = data ? [].concat(...data) : [];
 
   useEffect(() => {
@@ -54,6 +59,11 @@ export default function Home() {
     <>
       <Head>
         <title>readit: the front page of the internet</title>
+        <meta name="description" content={description} />
+        <meta property="og:description" content={description} />
+        <meta property="og:title" content={title} />
+        <meta property="twitter:description" content={description} />
+        <meta property="twitter:title" content={title} />
       </Head>
       <div className="container flex pt-4">
         <div className="w-full px-4 md:w-160 md:p-0">
@@ -65,7 +75,7 @@ export default function Home() {
               revalidate={revalidate}
             />
           ))}
-          {isValidating && posts.length > 0 && (
+          {isInitialLoading && posts.length > 0 && (
             <p className="text-lg text-center">Loading More...</p>
           )}
         </div>
