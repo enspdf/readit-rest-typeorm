@@ -19,6 +19,7 @@ devDependencies:
   '@types/cookie-parser': 1.4.2
   '@types/cors': 2.8.9
   '@types/express': 4.17.11
+  '@types/faker': 5.1.6
   '@types/jsonwebtoken': 8.5.0
   '@types/morgan': 1.9.2
   '@types/multer': 1.4.5
@@ -96,6 +97,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-no+R6rW60JEc59977wIxreQVsIEOAYwgCqldrA/vkpCnbD7MqTefO97lmoBe4WE0F156bC4uLSP1XHDOySnChg==
+  /@types/faker/5.1.6:
+    dev: true
+    resolution:
+      integrity: sha512-D+gfFWR/YCvlrYL8lgNZO1jKgIUW+cfhxsgMOqUMYwCI+tl0htD7vCCXp/oJsIxJpxuI7zqmo3gpVQBkFCM4iA==
   /@types/jsonwebtoken/8.5.0:
     dependencies:
       '@types/node': 14.14.25
@@ -2830,6 +2835,7 @@ specifiers:
   '@types/cookie-parser': ^1.4.2
   '@types/cors': ^2.8.9
   '@types/express': ^4.17.11
+  '@types/faker': ^5.1.6
   '@types/jsonwebtoken': ^8.5.0
   '@types/morgan': ^1.9.2
   '@types/multer': ^1.4.5
